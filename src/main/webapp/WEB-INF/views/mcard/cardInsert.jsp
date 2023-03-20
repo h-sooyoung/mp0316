@@ -99,7 +99,7 @@
 	</tr>
 	<tr>
 		<td>
-			명함 공개 여부
+			명함 공개 여부 test
 		</td>
 		<td>
 			<select name="status">
