@@ -10,4 +10,10 @@
 	<select id="selectMcStatusList" resultType="com.mp0316.dto.McStatusDTO">
 		select * from mcstatus order by mcstatus_seq
 	</select>
+	<select id="selectGenList" resultType="com.mp0316.dto.GenDTO">
+		select * from gen order by gen_seq
+	</select>
+	<select id="selectCompanyByMember_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
+		select * from company where member_seq = #{member_seq} order by company_seq
+	</select>
 </mapper>

@@ -8,7 +8,7 @@
 <h1>/mcard/cardInsert</h1>
 <form action="" method="post">
 <input name="" type="hidden" value=""/>
-<table>
+<table class="table">
 	<tr>
 		<td>
 			이름: 
@@ -52,9 +52,9 @@
 		<td>
 		<%-- 프로젝트 합친 후 genderDTO 옵션에 넣어주기 --%>
 			<select name="gender">
-				<c:forEach var="genderDTO" items="">
+				<c:forEach var="genderDTO" items="${genderList}">
+					<option value="${genderDTO.gen_seq}">${genderDTO.name}</option>
 				</c:forEach>
-				<option></option>
 			</select>
 		</td>
 	</tr>
@@ -64,9 +64,9 @@
 		</td>
 		<td>
 			<select name="grade">
-				<c:forEach var="cgradeDTO">
+				<c:forEach var="cgradeDTO" items="${cgradeList}">
+					<option value="${cgradeDTO.cgrade_seq}">${cgradeDTO.name}</option>
 				</c:forEach>
-				<option></option>
 			</select>
 		</td>
 	</tr>
@@ -76,7 +76,9 @@
 		</td>
 		<td>
 			<select name="cname">
-				<option></option>
+				<c:forEach var="companyDTO" items="${companyList}">
+					<option value="${companyDTO.company_seq}">${companyDTO.name}</option>
+				</c:forEach>
 			</select>
 			<button>회사 목록 추가하기</button>
 		</td>
@@ -101,8 +103,16 @@
 		</td>
 		<td>
 			<select name="status">
-				<option></option>
+				<c:forEach var="statusDTO" items="${statusList}">
+					<option value="${statusDTO.mcstatus_seq}">${statusDTO.name}</option>
+				</c:forEach>
+				
 			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="등록"/>
 		</td>
 	</tr>
 </table>

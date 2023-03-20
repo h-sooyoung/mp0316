@@ -15,11 +15,11 @@ public class MpServiceImpl implements MpService{
 	@Override
 	public String cardInsert(Model model) {
 		//gender 테이블 gen 목록 조회
-
+		model.addAttribute("genderList", mapper.selectGenList());
 		//grade 테이블 cgrade 목록 조회
 		model.addAttribute("cgradeList", mapper.selectCgradeList());
 		//cname 테이블 company에서 user가 등록한 목록 조회
-		
+		model.addAttribute("companyList", mapper.selectCompanyByMember_seq(1));
 		//status 테이블 mcstatus 목록 조회
 		model.addAttribute("statusList", mapper.selectMcStatusList());
 		return "mcard/cardInsert";
