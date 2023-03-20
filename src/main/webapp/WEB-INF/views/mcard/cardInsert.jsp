@@ -50,7 +50,10 @@
 			성별: 
 		</td>
 		<td>
+		<%-- 프로젝트 합친 후 genderDTO 옵션에 넣어주기 --%>
 			<select name="gender">
+				<c:forEach var="genderDTO" items="">
+				</c:forEach>
 				<option></option>
 			</select>
 		</td>
@@ -61,6 +64,8 @@
 		</td>
 		<td>
 			<select name="grade">
+				<c:forEach var="cgradeDTO">
+				</c:forEach>
 				<option></option>
 			</select>
 		</td>

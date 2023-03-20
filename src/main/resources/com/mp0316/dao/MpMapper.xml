@@ -5,9 +5,9 @@
  
 <mapper namespace="com.mp0316.dao.MpMapper">
 	<select id="selectCgradeList" resultType="com.mp0316.dto.CgradeDTO">
-		select * from cgrade order by cgrade_seq;
+		select * from cgrade order by cgrade_seq
 	</select>
 	<select id="selectMcStatusList" resultType="com.mp0316.dto.McStatusDTO">
-		select * from mcstatus order by mcstatus_seq;
+		select * from mcstatus order by mcstatus_seq
 	</select>
 </mapper>
