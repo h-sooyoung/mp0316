@@ -6,6 +6,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="/resources/js/jquery-3.6.1.min.js"></script>
 <h1>/mcard/cardInsert</h1>
+
+<script>
+$(function(){
+	//회사 선택시 주소 가져오기
+	$("#company").change(function(){
+		$.ajax({
+			type : "get",
+			url : "/mp/getAddrByCompany_seq",
+			data : {region : $("#region").val()},
+			success : function(value){
+				var ntext="";
+				var options = "<option value="+ntext+">지점 선택</option>";
+			    for(i=0 ; i < value.length ; i++){
+			    	options += "<option value="+value[i].branch_seq+">"+value[i].branchName;
+			    }
+			    $("#branch_seq").html(options);
+			}
+		});
+		
+	});	
+});
+</script>
+
 <form action="" method="post">
 <input name="" type="hidden" value=""/>
 <table class="table">
@@ -75,7 +98,7 @@
 			회사명: 
 		</td>
 		<td>
-			<select name="cname">
+			<select name="cname" id="company">
 				<c:forEach var="companyDTO" items="${companyList}">
 					<option value="${companyDTO.company_seq}">${companyDTO.name}</option>
 				</c:forEach>
@@ -99,7 +122,7 @@
 	</tr>
 	<tr>
 		<td>
-			명함 공개 여부 test
+			명함 공개 여부
 		</td>
 		<td>
 			<select name="status">
