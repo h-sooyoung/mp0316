@@ -16,4 +16,7 @@
 	<select id="selectCompanyByMember_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
 		select * from company where member_seq = #{member_seq} order by company_seq
 	</select>
+	<select id="selectCompanyByCompany_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
+		select * from company where company_seq = #{company_seq}
+	</select>
 </mapper>
