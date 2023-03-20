@@ -6,6 +6,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="/resources/js/jquery-3.6.1.min.js"></script>
 <script>
-	alert(${msg});
-	window.location=${link};
+	alert("${msg}");
+	window.location="${link}";
 </script>

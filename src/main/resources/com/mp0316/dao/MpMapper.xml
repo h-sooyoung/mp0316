@@ -19,4 +19,35 @@
 	<select id="selectCompanyByCompany_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
 		select * from company where company_seq = #{company_seq}
 	</select>
+	<insert id="insertMcard" parameterType="com.mp0316.dto.McardDTO">
+		insert into mcard(
+			mcard_seq,
+			member_seq,
+			name,
+			phone,
+			tel,
+			fax,
+			email,
+			gender,
+			grade,
+			cname,
+			addr1,
+			addr2,
+			status		
+		) values(
+			mcard_seq.nextval,
+			#{member_seq},
+			#{name},
+			#{phone},
+			#{tel},
+			#{fax},
+			#{email},
+			#{gender},
+			#{grade},
+			#{cname},
+			#{addr1},
+			#{addr2},
+			#{status}
+		)
+	</insert>
 </mapper>

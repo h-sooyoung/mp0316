@@ -25,8 +25,7 @@ $(function(){
 });
 </script>
 
-<form action="" method="post">
-<input name="" type="hidden" value=""/>
+<form action="/mp/cardInsertPro" method="post">
 <table class="table">
 	<tr>
 		<td>

@@ -28,8 +28,10 @@ public class MpServiceImpl implements MpService{
 
 	@Override
 	public String cardInsertPro(Model model, McardDTO mcardDTO) {
-		//
-		
+		//임시 아이디 설정
+		mcardDTO.setMember_seq(1);
+		//insert mapper 호출
+		mapper.insertMcard(mcardDTO);
 		//alert 출력 메세지
 		model.addAttribute("msg", "명함 등록이 완료되었습니다.");
 		//이동할 location
