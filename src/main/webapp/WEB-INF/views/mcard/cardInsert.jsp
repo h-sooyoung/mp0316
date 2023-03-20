@@ -106,7 +106,6 @@
 				<c:forEach var="statusDTO" items="${statusList}">
 					<option value="${statusDTO.mcstatus_seq}">${statusDTO.name}</option>
 				</c:forEach>
-				
 			</select>
 		</td>
 	</tr>
