@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.mp0316.dao.MpMapper">
+	<select id="selectCgradeList" resultType="com.mp0316.dto.CgradeDTO">
+		select * from cgrade order by cgrade_seq
+	</select>
+	<select id="selectMcStatusList" resultType="com.mp0316.dto.McStatusDTO">
+		select * from mcstatus order by mcstatus_seq
+	</select>
+	<select id="selectGenList" resultType="com.mp0316.dto.GenDTO">
+		select * from gen order by gen_seq
+	</select>
+	<select id="selectCompanyByMember_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
+		select * from company where member_seq = #{member_seq} order by company_seq
+	</select>
+</mapper>
