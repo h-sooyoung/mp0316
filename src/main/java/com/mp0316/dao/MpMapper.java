@@ -12,4 +12,5 @@ public interface MpMapper {
 	public List<McStatusDTO> selectMcStatusList();
 	public List<GenDTO> selectGenList();
 	public List<CompanyDTO> selectCompanyByMember_seq(int member_seq);
+	public CompanyDTO selectCompanyByCompany_seq(int company_seq);
 }

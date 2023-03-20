@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.mp0316.dao.MpMapper;
+import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.McardDTO;
 
 @Service
@@ -34,5 +35,10 @@ public class MpServiceImpl implements MpService{
 		//이동할 location
 		model.addAttribute("link", "/mp/cardInsert");
 		return "mcard/totalPro";
+	}
+
+	@Override
+	public CompanyDTO getAddrByCompany_seq(int company_seq) {
+		return mapper.selectCompanyByCompany_seq(company_seq);
 	}
 }

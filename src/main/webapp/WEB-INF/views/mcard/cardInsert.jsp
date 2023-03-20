@@ -14,14 +14,10 @@ $(function(){
 		$.ajax({
 			type : "get",
 			url : "/mp/getAddrByCompany_seq",
-			data : {region : $("#region").val()},
+			data : {company_seq : $("#company").val()},
 			success : function(value){
-				var ntext="";
-				var options = "<option value="+ntext+">지점 선택</option>";
-			    for(i=0 ; i < value.length ; i++){
-			    	options += "<option value="+value[i].branch_seq+">"+value[i].branchName;
-			    }
-			    $("#branch_seq").html(options);
+			    $("#addr1").attr("value", value.addr1);
+			    $("#addr2").attr("value", value.addr2);
 			}
 		});
 		
@@ -99,6 +95,7 @@ $(function(){
 		</td>
 		<td>
 			<select name="cname" id="company">
+					<option value="0">회사선택</option>
 				<c:forEach var="companyDTO" items="${companyList}">
 					<option value="${companyDTO.company_seq}">${companyDTO.name}</option>
 				</c:forEach>
@@ -110,14 +107,14 @@ $(function(){
 		<td>
 			주소: 
 		</td>
-		<td><input name="addr1" type="text"/>
+		<td><input name="addr1" id="addr1" type="text" value=""/>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			상세주소: 
 		</td>
-		<td><input name="addr2" type="text"/>
+		<td><input name="addr2" id="addr2" type="text" value=""/>
 		</td>
 	</tr>
 	<tr>
