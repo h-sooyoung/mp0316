@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.mp0316.dao.MpMapper">
+  
+  	<select id="logincheck" resultType="com.mp0316.dto.MemberDTO">
+ 		select * from member
+ 		where id=#{id} and pw=#{pw}
+  	</select>
+  	
+  	<select id="memberinfo" resultType="hashmap">
+  	select
+             a.id as id
+            ,a.pw as pw
+  			,b.name as name
+            ,b.addr1 as addr1
+            ,b.addr2 as addr2
+            ,b.birth as birth
+            ,b.reg as reg
+            ,b.email as email
+  			,c.name as gen
+            ,d.memo as memo
+  		from member a,memberinfo b,gen c, memberlog d
+  		where b.gen = c.gen_seq(+)
+  		and b.member_seq = a.member_seq(+)
+        and d.member_seq(+) = a.member_seq
+  		and a.id = #{id}
+  	</select>
+  </mapper>
