@@ -10,7 +10,7 @@
 
 <h2> id : ${sessionScope.id}</h2>
 <h2> pw : ${info.PW}</h2>
-
+dd
 <h2>${info.NAME}</h2><br />
 <h2>${info.ADDR1 }</h2><br />
 <h2>${info.ADDR2 }</h2><br />
