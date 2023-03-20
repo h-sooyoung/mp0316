@@ -6,3 +6,37 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="/resources/js/jquery-3.6.1.min.js"></script>
 <h1>/mcard/companyInsert</h1>
+
+<form method="post" action="/mp/companyInsertPro">
+<table class="table">
+	<tr>
+		<td>
+			회사 이름: 
+		</td>
+		<td>
+			<input type="text" name="name" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			주소: 
+		</td>
+		<td>
+			<input type="text" name="addr1" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			상세주소: 
+		</td>
+		<td>
+			<input type="text" name="addr2" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="등록"/>
+		</td>
+	</tr>
+</table>
+</form>

@@ -99,7 +99,7 @@ $(function(){
 					<option value="${companyDTO.company_seq}">${companyDTO.name}</option>
 				</c:forEach>
 			</select>
-			<button>회사 목록 추가하기</button>
+			<button type="button" onclick="window.open('/mp/companyInsert', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');">회사 목록 추가하기</button>
 		</td>
 	</tr>
 		<tr>
