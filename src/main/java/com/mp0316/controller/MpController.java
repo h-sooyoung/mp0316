@@ -32,4 +32,9 @@ public class MpController {
 	public @ResponseBody CompanyDTO getAddrByCompany_seq(int company_seq) {
 		return service.getAddrByCompany_seq(company_seq);
 	}
+	
+	@GetMapping("companyInsert")
+	public String companyInsert() {
+		return service.companyInsert();
+	}
 }

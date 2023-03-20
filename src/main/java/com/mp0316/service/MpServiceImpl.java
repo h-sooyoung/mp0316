@@ -43,4 +43,9 @@ public class MpServiceImpl implements MpService{
 	public CompanyDTO getAddrByCompany_seq(int company_seq) {
 		return mapper.selectCompanyByCompany_seq(company_seq);
 	}
+
+	@Override
+	public String companyInsert() {
+		return "mcard/companyInsert";
+	}
 }
