@@ -8,7 +8,7 @@
 	<c:forEach var="mcardDTO" items="${mcardList}">
 		<div class="col">
 			<div class="mcard">
-				<h2 align="right" class="cname">${mcardDTO.scname}</h2>
+				<h3 align="right" class="cname">${mcardDTO.scname}</h3>
 				<span class="name"><br/>${mcardDTO.name} </span><span>${mcardDTO.sgrade}</span><br/>
 				<span><b>M</b>: ${mcardDTO.phone}</span> <span><b>E</b>: ${mcardDTO.email}</span><br/>
 				<span><b>T</b>: ${mcardDTO.tel}</span> <span><b>F</b>: ${mcardDTO.fax}</span><br/>
