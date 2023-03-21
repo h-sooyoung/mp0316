@@ -18,4 +18,5 @@ public interface MpMapper {
 	public int insertCompany(CompanyDTO companyDTO);
 	public List<McardDTO> selectMcardOpenList();
 	public McardDTO selectMcardDTOBySeq(int mcard_seq);
+	public int updateMcard(McardDTO mcardDTO);
 }
