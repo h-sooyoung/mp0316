@@ -69,4 +69,17 @@ public class MpServiceImpl implements MpService{
 		model.addAttribute("mcardList", mapper.selectMcardOpenList());
 		return "mcard/cardListTable";
 	}
+
+	@Override
+	public String readUpdate(Model model, int mcard_seq) {
+		//해당 mcardDTO 한 줄 호출
+		model.addAttribute("mcardDTO", mapper.selectMcardDTOBySeq(mcard_seq));
+		//grade 테이블 cgrade 목록 조회
+		model.addAttribute("cgradeList", mapper.selectCgradeList());
+		//cname 테이블 company에서 user가 등록한 목록 조회
+		model.addAttribute("companyList", mapper.selectCompanyByMember_seq(1));
+		//status 테이블 mcstatus 목록 조회
+		model.addAttribute("statusList", mapper.selectMcStatusList());
+		return "mcard/readUpdate";
+	}
 }

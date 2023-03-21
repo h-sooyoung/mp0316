@@ -13,5 +13,6 @@ public interface MpService {
 	public String companyInsertPro(Model model, CompanyDTO companyDTO);
 	public String cardList(Model model);
 	public String cardListTable(Model model);
+	public String readUpdate(Model model, int mcard_seq);
 
 }
