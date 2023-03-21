@@ -37,4 +37,9 @@ public class MpController {
 	public String companyInsert() {
 		return service.companyInsert();
 	}
+	
+	@PostMapping("companyInsertPro")
+	public String companyInsertPro(Model model, CompanyDTO companyDTO) {
+		return service.companyInsertPro(model, companyDTO);
+	}
 }
