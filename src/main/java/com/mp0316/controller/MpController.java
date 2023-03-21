@@ -42,4 +42,14 @@ public class MpController {
 	public String companyInsertPro(Model model, CompanyDTO companyDTO) {
 		return service.companyInsertPro(model, companyDTO);
 	}
+	
+	@GetMapping("cardList")
+	public String cardList(Model model) {
+		return service.cardList(model);
+	}
+	
+	@GetMapping("cardListTable")
+	public String cardListTable(Model model) {
+		return service.cardListTable(model);
+	}
 }

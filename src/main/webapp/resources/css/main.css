@@ -1,0 +1,20 @@
+@charset "UTF-8";
+div.mcard {
+	height: 200px;
+	width: 360px;
+	background-color: #e6e6e6;
+	margin: 5px;
+	padding: 25px;
+	float: left;
+	}
+h2.cname {
+	padding: 0px;
+	margin: 0px;
+}
+span.name {
+	font-size: 17pt;
+}
+span.addr {
+	font-size: 8pt;
+	color: #727272;
+}

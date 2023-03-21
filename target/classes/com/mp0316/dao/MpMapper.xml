@@ -65,4 +65,16 @@
 			#{addr2}
 		)
 	</insert>
+	<select id="selectMcardOpenList" resultType="com.mp0316.dto.McardDTO">
+		select distinct
+		    m.*,
+		    g.name as sgender,
+		    cg.name as sgrade,
+		    c.name as scname
+		from mcard m, gen g, cgrade cg, company c
+		where m.gender = g.gen_seq and
+		    m.grade = cg.cgrade_seq and
+		    m.cname = c.company_seq
+		order by mcard_seq
+	</select>
 </mapper>
