@@ -59,4 +59,14 @@ public class MpServiceImpl implements MpService{
 		model.addAttribute("msg", "회사 정보가 등록 되었습니다.");
 		return "mcard/popUpPro";
 	}
+	public String cardList(Model model) {
+		model.addAttribute("mcardList", mapper.selectMcardOpenList());
+		return "mcard/cardList";
+	}
+
+	@Override
+	public String cardListTable(Model model) {
+		model.addAttribute("mcardList", mapper.selectMcardOpenList());
+		return "mcard/cardListTable";
+	}
 }
