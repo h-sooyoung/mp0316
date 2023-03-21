@@ -10,5 +10,6 @@ public interface MpService {
 	public String cardInsertPro(Model model, McardDTO mcardDTO);
 	public CompanyDTO getAddrByCompany_seq(int company_seq);
 	public String companyInsert();
+	public String companyInsertPro(Model model, CompanyDTO companyDTO);
 
 }

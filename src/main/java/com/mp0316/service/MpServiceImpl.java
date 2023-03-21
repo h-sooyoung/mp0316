@@ -48,4 +48,15 @@ public class MpServiceImpl implements MpService{
 	public String companyInsert() {
 		return "mcard/companyInsert";
 	}
+
+	@Override
+	public String companyInsertPro(Model model, CompanyDTO companyDTO) {
+		//임시 아이디 설정
+		companyDTO.setMember_seq(1);
+		//insert mapper 호풀
+		mapper.insertCompany(companyDTO);
+		//alert 출력 메세지
+		model.addAttribute("msg", "회사 정보가 등록 되었습니다.");
+		return "mcard/popUpPro";
+	}
 }

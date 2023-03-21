@@ -50,4 +50,19 @@
 			#{status}
 		)
 	</insert>
+	<insert id="insertCompany" parameterType="com.mp0316.dto.CompanyDTO">
+		insert into company(
+			company_seq,
+			member_seq,
+			name,
+			addr1,
+			addr2	
+		) values(
+			company_seq.nextval,
+			#{member_seq},
+			#{name},
+			#{addr1},
+			#{addr2}
+		)
+	</insert>
 </mapper>
