@@ -23,18 +23,20 @@
 			이메일
 		</th>
 	</tr>
+	<c:forEach var="mcardDTO" items="${mcardList}">
 	<tr>
 		<td>
-			회사
+			${mcardDTO.scname}
 		</td>
 		<td>
-			<a>이름</a>
+			<a href="/mp/readUpdate?mcard_seq=${mcardDTO.mcard_seq}">${mcardDTO.name}</a>
 		</td>
 		<td>
-			직급
+			${mcardDTO.sgrade}
 		</td>
 		<td>
-			이메일
+			${mcardDTO.email}
 		</td>
 	</tr>
+	</c:forEach>
 </table>

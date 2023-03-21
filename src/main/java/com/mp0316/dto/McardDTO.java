@@ -24,4 +24,5 @@ public class McardDTO {
 	private String sgender;
 	private String sgrade;
 	private String scname;
+	private String sstatus;
 }
