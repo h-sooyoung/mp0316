@@ -59,4 +59,9 @@ public class MpController {
 			@RequestParam(value = "mcard_seq" , required=true)int mcard_seq) {
 		return service.readUpdate(model, mcard_seq);
 	}
+	
+	@PostMapping("readUpdatePro")
+	public String readUpdatePro(Model model, McardDTO mcardDTO) {
+		return service.readUpdatePro(model, mcardDTO);
+	}
 }

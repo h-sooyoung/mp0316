@@ -26,6 +26,7 @@ $(function(){
 </script>
 
 <form action="/mp/readUpdatePro" method="post">
+<input type="hidden" name="mcard_seq" value="${mcardDTO.mcard_seq}"/>
 <table class="table">
 	<tr>
 		<td>

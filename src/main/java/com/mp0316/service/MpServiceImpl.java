@@ -82,4 +82,15 @@ public class MpServiceImpl implements MpService{
 		model.addAttribute("statusList", mapper.selectMcStatusList());
 		return "mcard/readUpdate";
 	}
+
+	@Override
+	public String readUpdatePro(Model model, McardDTO mcardDTO) {
+		//update 맵퍼 호출
+		mapper.updateMcard(mcardDTO);
+		//alert 출력 메세지
+		model.addAttribute("msg", "명함 수정이 완료되었습니다.");
+		//이동할 location
+		model.addAttribute("link", "/mp/readUpdate?mcard_seq="+mcardDTO.getMcard_seq());
+		return "mcard/totalPro";
+	}
 }

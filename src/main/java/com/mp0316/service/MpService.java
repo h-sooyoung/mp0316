@@ -14,5 +14,6 @@ public interface MpService {
 	public String cardList(Model model);
 	public String cardListTable(Model model);
 	public String readUpdate(Model model, int mcard_seq);
+	public String readUpdatePro(Model model, McardDTO mcardDTO);
 
 }

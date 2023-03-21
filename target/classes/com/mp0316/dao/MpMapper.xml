@@ -91,4 +91,17 @@
 		    m.status = ms.mcstatus_seq and
 		    m.mcard_seq = #{mcard_seq}
 	</select>
+	<update id="updateMcard" parameterType="com.mp0316.dto.McardDTO">
+		update mcard set
+			phone = #{phone},
+			tel = #{tel},
+			fax = #{fax},
+			email = #{email},
+			grade = #{grade},
+			cname = #{cname},
+			addr1 = #{addr1},
+			addr2 = #{addr2},
+			status = #{status}
+		where mcard_seq = #{mcard_seq}
+	</update>
 </mapper>
