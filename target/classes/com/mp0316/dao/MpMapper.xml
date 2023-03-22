@@ -66,16 +66,29 @@
 		)
 	</insert>
 	<select id="selectMcardOpenList" resultType="com.mp0316.dto.McardDTO">
-		select distinct
-		    m.*,
-		    g.name as sgender,
-		    cg.name as sgrade,
-		    c.name as scname
-		from mcard m, gen g, cgrade cg, company c
-		where m.gender = g.gen_seq and
-		    m.grade = cg.cgrade_seq and
-		    m.cname = c.company_seq
-		order by mcard_seq
+		select * from (
+		    select rownum r, a.* from (
+		        select distinct
+		            m.*,
+		            g.name as sgender,
+		            cg.name as sgrade,
+		            c.name as scname
+		        from mcard m, gen g, cgrade cg, company c
+		        where m.gender = g.gen_seq and
+		            m.grade = cg.cgrade_seq and
+		            m.cname = c.company_seq
+		        order by mcard_seq
+		    ) a 
+		) where r between #{startNum} and #{endNum}
+	</select>
+	<select id="countMcardOpenList" resultType="int">
+		    select distinct
+		        count(*)
+		    from mcard m, gen g, cgrade cg, company c
+		    where m.gender = g.gen_seq and
+		        m.grade = cg.cgrade_seq and
+		        m.cname = c.company_seq
+		    order by mcard_seq
 	</select>
 	<select id="selectMcardDTOBySeq" parameterType="int" resultType="com.mp0316.dto.McardDTO">
 		select distinct

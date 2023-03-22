@@ -45,13 +45,15 @@ public class MpController {
 	}
 	
 	@GetMapping("cardList")
-	public String cardList(Model model) {
-		return service.cardList(model);
+	public String cardList(Model model,
+			@RequestParam(value = "pageNum" , required=false, defaultValue="1")int pageNum) {
+		return service.cardList(model, pageNum);
 	}
 	
 	@GetMapping("cardListTable")
-	public String cardListTable(Model model) {
-		return service.cardListTable(model);
+	public String cardListTable(Model model,
+			@RequestParam(value = "pageNum" , required=false, defaultValue="1")int pageNum) {
+		return service.cardListTable(model, pageNum);
 	}
 	
 	@GetMapping("readUpdate")

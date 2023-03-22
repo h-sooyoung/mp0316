@@ -11,8 +11,8 @@ public interface MpService {
 	public CompanyDTO getAddrByCompany_seq(int company_seq);
 	public String companyInsert();
 	public String companyInsertPro(Model model, CompanyDTO companyDTO);
-	public String cardList(Model model);
-	public String cardListTable(Model model);
+	public String cardList(Model model, int pageNum);
+	public String cardListTable(Model model, int pageNum);
 	public String readUpdate(Model model, int mcard_seq);
 	public String readUpdatePro(Model model, McardDTO mcardDTO);
 
