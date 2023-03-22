@@ -6,6 +6,7 @@ div.mcard {
 	margin: 5px;
 	padding: 25px;
 	float: left;
+	cursor:pointer;
 	}
 h3.cname {
 	padding: 0px;
