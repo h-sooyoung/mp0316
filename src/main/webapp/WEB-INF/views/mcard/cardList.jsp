@@ -7,7 +7,7 @@
 	<div class="row">
 	<c:forEach var="mcardDTO" items="${mcardList}">
 		<div class="col">
-			<div class="mcard">
+			<div class="mcard" OnClick="location.href ='/mp/readUpdate?mcard_seq=${mcardDTO.mcard_seq}'">
 				<h3 align="right" class="cname">${mcardDTO.scname}</h3>
 				<span class="name"><br/>${mcardDTO.name} </span><span>${mcardDTO.sgrade}</span><br/>
 				<span><b>M</b>: ${mcardDTO.phone}</span> <span><b>E</b>: ${mcardDTO.email}</span><br/>
