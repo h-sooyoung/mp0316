@@ -36,3 +36,10 @@
 	</tr>
 	</c:forEach>
 </table>
+
+<%-- 페이징 처리--%>
+<center>
+<c:forEach var="pageNum" begin="1" end="${countPage}" step="1">
+	<a href="/mp/cardListTable?pageNum=${pageNum}">[${pageNum}]</a> 
+</c:forEach>
+</center>

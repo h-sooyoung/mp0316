@@ -2,6 +2,8 @@ package com.mp0316.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.mp0316.dto.CgradeDTO;
 import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.GenDTO;
@@ -16,7 +18,8 @@ public interface MpMapper {
 	public CompanyDTO selectCompanyByCompany_seq(int company_seq);
 	public int insertMcard(McardDTO mcardDTO);
 	public int insertCompany(CompanyDTO companyDTO);
-	public List<McardDTO> selectMcardOpenList();
+	public List<McardDTO> selectMcardOpenList(@Param("startNum")int startNum, @Param("endNum")int endNum);
+	public int countMcardOpenList();
 	public McardDTO selectMcardDTOBySeq(int mcard_seq);
 	public int updateMcard(McardDTO mcardDTO);
 }

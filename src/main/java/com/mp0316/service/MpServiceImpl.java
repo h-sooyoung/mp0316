@@ -59,14 +59,38 @@ public class MpServiceImpl implements MpService{
 		model.addAttribute("msg", "회사 정보가 등록 되었습니다.");
 		return "mcard/popUpPro";
 	}
-	public String cardList(Model model) {
-		model.addAttribute("mcardList", mapper.selectMcardOpenList());
+	public String cardList(Model model, int pageNum) {
+		//한 페이지에 출력할 데이터 양
+		int pageSize = 9;
+		//불러올 데이터 범위 계산
+		int startNum = (pageNum-1) * pageSize + 1;
+		int endNum = pageNum * pageSize;
+		//총 페이지 갯수 계산
+		int countRow = mapper.countMcardOpenList();
+		int countPage = countRow/pageSize;
+		if(countRow%pageSize > 0) {
+			countPage++;
+		};
+		model.addAttribute("mcardList", mapper.selectMcardOpenList(startNum, endNum));
+		model.addAttribute("countPage", countPage);
 		return "mcard/cardList";
 	}
 
 	@Override
-	public String cardListTable(Model model) {
-		model.addAttribute("mcardList", mapper.selectMcardOpenList());
+	public String cardListTable(Model model, int pageNum) {
+		//한 페이지에 출력할 데이터 양
+		int pageSize = 5;
+		//불러올 데이터 범위 계산
+		int startNum = (pageNum-1) * pageSize + 1;
+		int endNum = pageNum * pageSize;
+		//총 페이지 갯수 계산
+		int countRow = mapper.countMcardOpenList();
+		int countPage = countRow/pageSize;
+		if(countRow%pageSize > 0) {
+			countPage++;
+		};
+		model.addAttribute("mcardList", mapper.selectMcardOpenList(startNum, endNum));
+		model.addAttribute("countPage", countPage);
 		return "mcard/cardListTable";
 	}
 
