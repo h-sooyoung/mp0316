@@ -153,4 +153,11 @@
 	<delete id="delete1CompanyBySeq" parameterType="int">
 		delete from company where company_seq = #{company_seq}
 	</delete>
+	<update id="updateCompany" parameterType="com.mp0316.dto.CompanyDTO">
+		update company set
+			name = #{name},
+			addr1 = #{addr1},
+			addr2 = #{addr2}
+		where company_seq = #{company_seq}
+	</update>
 </mapper>

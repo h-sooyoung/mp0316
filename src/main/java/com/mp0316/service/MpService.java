@@ -19,4 +19,6 @@ public interface MpService {
 	public String companyList(Model model);
 	public int delete1CompanyBySeq(int company_seq);
 	public String companyListPro(Model model, int companyArr[]);
+	public String companyUpdate(Model model, int company_seq);
+	public String companyUpdatePro(Model model, CompanyDTO companyDTO);
 }
