@@ -84,4 +84,9 @@ public class MpController {
 	public @ResponseBody void delete1CompanyBySeq(int company_seq) {
 		service.delete1CompanyBySeq(company_seq);
 	}
+	
+	@PostMapping("companyListPro")
+	public String companyListPro(Model model, int companyArr[]) {
+		return service.companyListPro(model, companyArr);
+	}
 }

@@ -151,4 +151,16 @@ public class MpServiceImpl implements MpService{
 		return mapper.delete1CompanyBySeq(company_seq);
 	}
 
+	@Override
+	public String companyListPro(Model model, int[] companyArr) {
+		for(int company_seq : companyArr) {
+			mapper.delete1CompanyBySeq(company_seq);
+		}
+		//alert 출력 메세지
+		model.addAttribute("msg", "삭제가 완료되었습니다.");
+		//이동할 location
+		model.addAttribute("link", "/mp/companyList");
+		return "mcard/totalPro";
+	}
+
 }
