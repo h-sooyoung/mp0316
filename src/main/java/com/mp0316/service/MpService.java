@@ -18,5 +18,5 @@ public interface MpService {
 	public String cardSearchResult(Model model, String searchCol, String searchValue, int pageNum);
 	public String companyList(Model model);
 	public int delete1CompanyBySeq(int company_seq);
-
+	public String companyListPro(Model model, int companyArr[]);
 }

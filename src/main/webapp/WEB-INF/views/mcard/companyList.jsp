@@ -4,7 +4,18 @@
 <script src="/resources/js/jquery-3.6.1.min.js"></script>
 <script>
 $(function(){
-	
+	$("#allCheck").click(function() {
+		if($("#allCheck").is(":checked")) $("input[name=companyArr]").prop("checked", true);
+		else $("input[name=companyArr]").prop("checked", false);
+	});
+
+	$("input[name=companyArr]").click(function() {
+		var total = $("input[name=companyArr]").length;
+		var checked = $("input[name=companyArr]:checked").length;
+
+		if(total != checked) $("#allCheck").prop("checked", false);
+		else $("#allCheck").prop("checked", true); 
+	});
 });
 
 function delCompany(num1) {
@@ -38,7 +49,7 @@ function delCompany(num1) {
 	<c:forEach var="companyDTO" items="${companyList}">
 	<tr>
 		<td>
-			<input type="checkbox" value="${companyDTO.company_seq}"/>
+			<input type="checkbox" name="companyArr" id="checkBox" value="${companyDTO.company_seq}"/>
 		</td>
 		<td>
 			${companyDTO.name}
