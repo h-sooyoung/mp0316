@@ -163,4 +163,19 @@ public class MpServiceImpl implements MpService{
 		return "mcard/totalPro";
 	}
 
+	@Override
+	public String companyUpdate(Model model, int company_seq) {
+		model.addAttribute("companyDTO", mapper.selectCompanyByCompany_seq(company_seq));
+		return "mcard/companyUpdate";
+	}
+
+	@Override
+	public String companyUpdatePro(Model model, CompanyDTO companyDTO) {
+		// 업데이트 맵퍼 호출
+		mapper.updateCompany(companyDTO);
+		//alert 출력 메세지
+				model.addAttribute("msg", "회사 정보가 수정 되었습니다.");
+		return "mcard/popUpPro";
+	}
+
 }

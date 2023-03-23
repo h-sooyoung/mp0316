@@ -28,4 +28,5 @@ public interface MpMapper {
 	public int countSearchMcardList(@Param("searchCol")String searchCol,
 										@Param("searchValue")String searchValue);
 	public int delete1CompanyBySeq(int company_seq);
+	public int updateCompany(CompanyDTO companyDTO);
 }

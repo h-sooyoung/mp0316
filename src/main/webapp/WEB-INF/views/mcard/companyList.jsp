@@ -43,6 +43,9 @@ function delCompany(num1) {
 			주소
 		</th>
 		<th>
+			수정
+		</th>
+		<th>
 			<input type="submit" value="선택삭제"/>
 		</th>
 	</tr>
@@ -56,6 +59,9 @@ function delCompany(num1) {
 		</td>
 		<td>
 			${companyDTO.addr1} ${companyDTO.addr2}
+		</td>
+		<td>
+			<button type="button" onclick="window.open('/mp/companyUpdate?company_seq=${companyDTO.company_seq}', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');">수정</button>
 		</td>
 		<td>
 			<button type="button" onclick="delCompany(${companyDTO.company_seq})">삭제</button>

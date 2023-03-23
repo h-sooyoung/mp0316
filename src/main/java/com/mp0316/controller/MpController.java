@@ -89,4 +89,14 @@ public class MpController {
 	public String companyListPro(Model model, int companyArr[]) {
 		return service.companyListPro(model, companyArr);
 	}
+	
+	@GetMapping("companyUpdate")
+	public String companyUpdate(Model model, int company_seq) {
+		return service.companyUpdate(model, company_seq);
+	}
+	
+	@PostMapping("companyUpdatePro")
+	public String companyUpdatePro(Model model, CompanyDTO companyDTO) {
+		return service.companyUpdatePro(model, companyDTO);
+	}
 }
