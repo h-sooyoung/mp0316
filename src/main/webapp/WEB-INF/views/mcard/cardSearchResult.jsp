@@ -40,7 +40,7 @@
 <%-- 페이징 처리--%>
 <center>
 <c:forEach var="pageNum" begin="1" end="${countPage}" step="1">
-	<a href="/mp/cardListTable?pageNum=${pageNum}">[${pageNum}]</a> 
+	<a href="/mp/cardListTable?pageNum=${pageNum}&searchCol=${searchCol}&searchValue=${searchValue}">[${pageNum}]</a> 
 </c:forEach>
 </center>
 <br/>

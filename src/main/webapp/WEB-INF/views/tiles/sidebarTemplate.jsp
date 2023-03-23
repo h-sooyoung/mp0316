@@ -8,7 +8,7 @@
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/mp/cardListTable">직원 목록</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/mp/cardInsert">직원 등록</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/mp/cardList">명함 보기</a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/mp/companyList">회사 목록</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
     </div>
