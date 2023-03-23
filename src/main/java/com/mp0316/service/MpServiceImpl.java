@@ -117,4 +117,38 @@ public class MpServiceImpl implements MpService{
 		model.addAttribute("link", "/mp/readUpdate?mcard_seq="+mcardDTO.getMcard_seq());
 		return "mcard/totalPro";
 	}
+
+	@Override
+	public String cardSearchResult(Model model, String searchCol, String searchValue, int pageNum) {
+		//한 페이지에 출력할 데이터 양
+		int pageSize = 5;
+		//불러올 데이터 범위 계산
+		int startNum = (pageNum-1) * pageSize + 1;
+		int endNum = pageNum * pageSize;
+		//총 페이지 갯수 계산
+		int countRow = mapper.countSearchMcardList(searchCol, searchValue);
+		int countPage = countRow/pageSize;
+		if(countRow%pageSize > 0) {
+			countPage++;
+		};
+		model.addAttribute("mcardList", mapper.searchMcardList(searchCol, searchValue, startNum, endNum));
+		model.addAttribute("countPage", countPage);
+		model.addAttribute("searchCol", searchCol);
+		model.addAttribute("searchValue", searchValue);
+		return "mcard/cardSearchResult";
+	}
+
+	@Override
+	public String companyList(Model model) {
+		//임의 멤버 시퀀스 부여
+		int member_seq = 1;
+		model.addAttribute("companyList", mapper.selectCompanyByMember_seq(member_seq));
+		return "mcard/companyList";
+	}
+
+	@Override
+	public int delete1CompanyBySeq(int company_seq) {
+		return mapper.delete1CompanyBySeq(company_seq);
+	}
+
 }

@@ -15,5 +15,8 @@ public interface MpService {
 	public String cardListTable(Model model, int pageNum);
 	public String readUpdate(Model model, int mcard_seq);
 	public String readUpdatePro(Model model, McardDTO mcardDTO);
+	public String cardSearchResult(Model model, String searchCol, String searchValue, int pageNum);
+	public String companyList(Model model);
+	public int delete1CompanyBySeq(int company_seq);
 
 }

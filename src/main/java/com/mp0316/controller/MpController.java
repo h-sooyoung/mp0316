@@ -66,4 +66,22 @@ public class MpController {
 	public String readUpdatePro(Model model, McardDTO mcardDTO) {
 		return service.readUpdatePro(model, mcardDTO);
 	}
+	
+	@GetMapping("cardSearchResult")
+	public String cardSearchResult(Model model, 
+			@RequestParam(value = "searchCol" , required=true)String searchCol,
+			@RequestParam(value = "searchValue" , required=true)String searchValue,
+			@RequestParam(value = "pageNum" , required=false, defaultValue="1")int pageNum) {
+		return service.cardSearchResult(model, searchCol, searchValue, pageNum);
+	}
+	
+	@GetMapping("companyList")
+	public String companyList(Model model) {
+		return service.companyList(model);
+	}
+	
+	@GetMapping("delete1CompanyBySeq")
+	public @ResponseBody void delete1CompanyBySeq(int company_seq) {
+		service.delete1CompanyBySeq(company_seq);
+	}
 }

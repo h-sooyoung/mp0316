@@ -22,4 +22,10 @@ public interface MpMapper {
 	public int countMcardOpenList();
 	public McardDTO selectMcardDTOBySeq(int mcard_seq);
 	public int updateMcard(McardDTO mcardDTO);
+	public List<McardDTO> searchMcardList(@Param("searchCol")String searchCol,
+										@Param("searchValue")String searchValue,
+										@Param("startNum")int startNum, @Param("endNum")int endNum);
+	public int countSearchMcardList(@Param("searchCol")String searchCol,
+										@Param("searchValue")String searchValue);
+	public int delete1CompanyBySeq(int company_seq);
 }
