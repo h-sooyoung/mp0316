@@ -44,7 +44,7 @@
 </c:forEach>
 </center>
 <br/>
-
+<button onclick="window.location='/mp/cardInsert'">등록하기</button>
 <%-- 검색창 --%>
 <center>
 <form method="get" action="/mp/cardSearchResult">
