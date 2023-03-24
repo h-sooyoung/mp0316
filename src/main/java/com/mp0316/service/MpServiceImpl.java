@@ -11,6 +11,7 @@ import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.McardDTO;
 import com.mp0316.dto.MemberDTO;
 import com.mp0316.dto.MemberinfoDTO;
+import com.mp0316.dto.MemberjoinDTO;
 
 @Service
 public class MpServiceImpl implements MpService{
@@ -246,6 +247,23 @@ public class MpServiceImpl implements MpService{
 	public String memberinforead(Model model, int seq) {
 		model.addAttribute("dto", mapper.memberinforead(seq));
 		return "member/memberinforead";
+	}
+	
+	@Override
+	public String joinmemberPro(MemberjoinDTO dto,Model model) {
+		mapper.joinmember(dto);
+		dto.setMember_seq(mapper.findseq(dto.getId()));
+		mapper.joinmember2(dto);
+		//alter출력메세지
+		model.addAttribute("msg", "등록이 완료되었습니다");
+		//이동할로케이션
+		model.addAttribute("link", "/mp/login");
+		return "member/loginPro";
+	}
+
+	@Override
+	public String memberjoin() {
+		return "member/memberjoin";
 	}
 
 }

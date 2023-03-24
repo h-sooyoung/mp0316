@@ -8,6 +8,7 @@ import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.McardDTO;
 import com.mp0316.dto.MemberDTO;
 import com.mp0316.dto.MemberinfoDTO;
+import com.mp0316.dto.MemberjoinDTO;
 
 public interface MpService {
 	public String cardInsert(Model model, HttpSession session);
@@ -32,4 +33,6 @@ public interface MpService {
 	public String memberinfo(HttpSession session , Model model);
 	public String memberupdate(MemberinfoDTO dto);
 	public String memberinforead(Model model,int seq);
+	public String joinmemberPro(MemberjoinDTO dto,Model model);
+	public String memberjoin();
 }

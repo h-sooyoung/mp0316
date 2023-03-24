@@ -12,6 +12,7 @@ import com.mp0316.dto.McStatusDTO;
 import com.mp0316.dto.McardDTO;
 import com.mp0316.dto.MemberDTO;
 import com.mp0316.dto.MemberinfoDTO;
+import com.mp0316.dto.MemberjoinDTO;
 
 public interface MpMapper {
 	public List<CgradeDTO> selectCgradeList();
@@ -40,4 +41,7 @@ public interface MpMapper {
 	public HashMap memberinfo(String id);
 	public void memberupdate(MemberinfoDTO dto);
 	public MemberinfoDTO memberinforead(@Param("seq")int seq);
+	public void joinmember(MemberjoinDTO dto);
+	public void joinmember2(MemberjoinDTO dto);
+	public int findseq(String id);
 }
