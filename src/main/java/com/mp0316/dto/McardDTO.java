@@ -20,4 +20,9 @@ public class McardDTO {
 	private int cname;
 	private Date reg;
 	private int status;
+	//추가변수
+	private String sgender;
+	private String sgrade;
+	private String scname;
+	private String sstatus;
 }

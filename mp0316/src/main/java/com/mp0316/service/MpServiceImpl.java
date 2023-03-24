@@ -14,7 +14,7 @@ import com.mp0316.dto.MemberinfoDTO;
 public class MpServiceImpl implements MpService{
 	@Autowired
 	MpMapper mapper;
-	//¼­ºñ½º´Â ¸ÅÆÛ¸¦ ºÒ·¯¿Í¾ßÇÔ
+	//ï¿½ï¿½ï¿½ñ½º´ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½Ò·ï¿½ï¿½Í¾ï¿½ï¿½ï¿½
 
 	@Override
 	public String logincheck(MemberDTO dto, HttpSession session) {
@@ -26,7 +26,7 @@ public class MpServiceImpl implements MpService{
 
 	@Override
 	public void logout(HttpSession session) {
-		session.invalidate();//¼¼¼ÇÃÊ±âÈ­
+		session.invalidate();//ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½È­
 	}
 
 	@Override
@@ -45,7 +45,6 @@ public class MpServiceImpl implements MpService{
 	@Override
 	public String memberupdate(MemberinfoDTO dto) {
 		mapper.memberupdate(dto);
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		return "member/memberupdate";
 	}
 

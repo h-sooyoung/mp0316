@@ -16,4 +16,207 @@
 	<select id="selectCompanyByMember_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
 		select * from company where member_seq = #{member_seq} order by company_seq
 	</select>
+	<select id="selectCompanyByCompany_seq" resultType="com.mp0316.dto.CompanyDTO" parameterType="int">
+		select * from company where company_seq = #{company_seq}
+	</select>
+	<insert id="insertMcard" parameterType="com.mp0316.dto.McardDTO">
+		insert into mcard(
+			mcard_seq,
+			member_seq,
+			name,
+			phone,
+			tel,
+			fax,
+			email,
+			gender,
+			grade,
+			cname,
+			addr1,
+			addr2,
+			status		
+		) values(
+			mcard_seq.nextval,
+			#{member_seq},
+			#{name},
+			#{phone},
+			#{tel},
+			#{fax},
+			#{email},
+			#{gender},
+			#{grade},
+			#{cname},
+			#{addr1},
+			#{addr2},
+			#{status}
+		)
+	</insert>
+	<insert id="insertCompany" parameterType="com.mp0316.dto.CompanyDTO">
+		insert into company(
+			company_seq,
+			member_seq,
+			name,
+			addr1,
+			addr2	
+		) values(
+			company_seq.nextval,
+			#{member_seq},
+			#{name},
+			#{addr1},
+			#{addr2}
+		)
+	</insert>
+	<select id="selectMcardOpenList" resultType="com.mp0316.dto.McardDTO">
+		select * from (
+		    select rownum r, a.* from (
+		        select distinct
+		            m.*,
+		            g.name as sgender,
+		            cg.name as sgrade,
+		            c.name as scname
+		        from mcard m, gen g, cgrade cg, company c
+		        where m.gender = g.gen_seq and
+		            m.grade = cg.cgrade_seq and
+		            m.cname = c.company_seq
+		        order by mcard_seq
+		    ) a 
+		) where r between #{startNum} and #{endNum}
+	</select>
+	<select id="countMcardOpenList" resultType="int">
+		    select distinct
+		        count(*)
+		    from mcard m, gen g, cgrade cg, company c
+		    where m.gender = g.gen_seq and
+		        m.grade = cg.cgrade_seq and
+		        m.cname = c.company_seq
+		    order by mcard_seq
+	</select>
+	<select id="selectMcardDTOBySeq" parameterType="int" resultType="com.mp0316.dto.McardDTO">
+		select distinct
+		    m.*,
+		    g.name as sgender,
+		    cg.name as sgrade,
+		    c.name as scname,
+		    ms.name as sstatus
+		from mcard m, gen g, cgrade cg, company c, mcstatus ms
+		where m.gender = g.gen_seq and
+		    m.grade = cg.cgrade_seq and
+		    m.cname = c.company_seq and
+		    m.status = ms.mcstatus_seq(+) and
+		    m.mcard_seq = #{mcard_seq}
+	</select>
+	<update id="updateMcard" parameterType="com.mp0316.dto.McardDTO">
+		update mcard set
+			phone = #{phone},
+			tel = #{tel},
+			fax = #{fax},
+			email = #{email},
+			grade = #{grade},
+			cname = #{cname},
+			addr1 = #{addr1},
+			addr2 = #{addr2},
+			status = #{status}
+		where mcard_seq = #{mcard_seq}
+	</update>
+	<select id="searchMcardList" resultType="com.mp0316.dto.McardDTO">
+		select * from (
+		    select rownum r, a.* from (
+		        select * from (
+		            select distinct
+		                m.*,
+		                g.name as sgender,
+		                cg.name as sgrade,
+		                c.name as scname
+		            from mcard m, gen g, cgrade cg, company c
+		            where m.gender = g.gen_seq and
+		                m.grade = cg.cgrade_seq and
+		                m.cname = c.company_seq
+		        ) where ${searchCol} like '%'||#{searchValue}||'%'
+		        order by mcard_seq
+		    ) a 
+		) where r between #{startNum} and #{endNum}
+	</select>
+	<select id="countSearchMcardList" resultType="int">
+		select count(*) from (
+		        select * from (
+		            select distinct
+		                m.*,
+		                g.name as sgender,
+		                cg.name as sgrade,
+		                c.name as scname
+		            from mcard m, gen g, cgrade cg, company c
+		            where m.gender = g.gen_seq and
+		                m.grade = cg.cgrade_seq and
+		                m.cname = c.company_seq
+		        ) where ${searchCol} like '%'||#{searchValue}||'%'
+		    )
+	</select>
+	<delete id="delete1CompanyBySeq" parameterType="int">
+		delete from company where company_seq = #{company_seq}
+	</delete>
+	<update id="updateCompany" parameterType="com.mp0316.dto.CompanyDTO">
+		update company set
+			name = #{name},
+			addr1 = #{addr1},
+			addr2 = #{addr2}
+		where company_seq = #{company_seq}
+	</update>
+	
+	<!--                                  현태                                             -->
+	<select id="logincheck" resultType="com.mp0316.dto.MemberDTO">
+ 		select * from member
+ 		where id=#{id} and pw=#{pw}
+  	</select>
+  	
+  	<select id="memberinfo" resultType="hashmap">
+  		select
+             a.id as id
+            ,a.pw as pw
+  			,b.name as name
+  			,b.member_seq as member_seq
+            ,b.addr1 as addr1
+            ,b.addr2 as addr2
+            ,b.birth as birth
+            ,b.reg as reg
+            ,b.email as email
+  			,c.name as gen
+            ,d.memo as memo
+  		from member a,memberinfo b,gen c, memberlog d
+  		where b.gen = c.gen_seq(+)
+  		and b.member_seq = a.member_seq(+)
+        and d.member_seq(+) = a.member_seq
+  		and a.id = #{id}
+  	</select>
+  	
+  	<update id="memberupdate" parameterType="com.mp0316.dto.MemberinfoDTO">
+  		update memberinfo set 
+			name=#{name},
+			email=#{email},
+			tel=#{tel},
+			addr1=#{addr1},
+			addr2=#{addr2}
+  		where member_seq=#{member_seq}
+  	</update>
+  	
+  	<select id="memberinforead" resultType="com.mp0316.dto.MemberinfoDTO">
+  		select distinct memberinfo.*, member.id memid
+  		from memberinfo, member  
+  		where memberinfo.member_seq = member.member_seq 
+  		and memberinfo.member_seq=#{seq}
+  	</select>
+  	
+  	<insert id="joinmember" parameterType="hashmap">
+  		insert into member(member_seq,id,pw)
+  					values(member_seq.nextval,#{id},#{pw})
+  	</insert>
+  	
+  	<insert id="joinmember2" parameterType="hashmap">
+  			insert into memberinfo(memberinfo_seq,member_seq,name,birth,gen,email,tel,addr1,addr2,reg)
+  						values(memberinfo_seq.nextval,#{member_seq},#{name},#{birth},#{gen},#{email},#{tel},#{addr1},#{addr2},sysdate)
+  	</insert>
+  	
+  	<select id="findseq" resultType="int"> 
+  		select member_seq
+  		from (select * from member_seq order by member_seq desc) 
+  		where member_seq = #{member_seq}
+  	</select>
 </mapper>

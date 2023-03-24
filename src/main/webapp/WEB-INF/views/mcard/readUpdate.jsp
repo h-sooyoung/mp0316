@@ -21,41 +21,42 @@ $(function(){
 });
 </script>
 
-<form action="/mp/cardInsertPro" method="post">
+<form action="/mp/readUpdatePro" method="post">
+<input type="hidden" name="mcard_seq" value="${mcardDTO.mcard_seq}"/>
 <table class="table">
 	<tr>
 		<td>
 			이름: 
 		</td>
-		<td><input name="name" type="text"/>
+		<td><input name="name" type="text" value="${mcardDTO.name}" readonly/>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			휴대전화: 
 		</td>
-		<td><input name="phone" type="text"/>
+		<td><input name="phone" type="text" value="${mcardDTO.phone}"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			전화번호: 
 		</td>
-		<td><input name="tel" type="text"/>
+		<td><input name="tel" type="text" value="${mcardDTO.tel}"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			팩스번호: 
 		</td>
-		<td><input name="fax" type="text"/>
+		<td><input name="fax" type="text" value="${mcardDTO.fax}"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			이메일: 
 		</td>
-		<td><input name="email" type="text"/>
+		<td><input name="email" type="text" value="${mcardDTO.email}"/>
 		</td>
 	</tr>
 
@@ -64,10 +65,11 @@ $(function(){
 			성별: 
 		</td>
 		<td>
-			<select name="gender">
-				<c:forEach var="genderDTO" items="${genderList}">
-					<option value="${genderDTO.gen_seq}">${genderDTO.name}</option>
-				</c:forEach>
+			<select name="gender"
+        		style="background-color:#D8D8D8" 
+        		onFocus="this.initialSelect = this.selectedIndex;" 
+        		onChange="this.selectedIndex = this.initialSelect;">
+				<option value="${mcardDTO.gender}">${mcardDTO.sgender}</option>
 			</select>
 		</td>
 	</tr>
@@ -77,6 +79,7 @@ $(function(){
 		</td>
 		<td>
 			<select name="grade">
+				<option value="${mcardDTO.grade}">${mcardDTO.sgrade}</option>
 				<c:forEach var="cgradeDTO" items="${cgradeList}">
 					<option value="${cgradeDTO.cgrade_seq}">${cgradeDTO.name}</option>
 				</c:forEach>
@@ -89,7 +92,7 @@ $(function(){
 		</td>
 		<td>
 			<select name="cname" id="company">
-					<option value="0">회사선택</option>
+					<option value="${mcardDTO.cname}">${mcardDTO.scname}</option>
 				<c:forEach var="companyDTO" items="${companyList}">
 					<option value="${companyDTO.company_seq}">${companyDTO.name}</option>
 				</c:forEach>
@@ -101,22 +104,23 @@ $(function(){
 		<td>
 			주소: 
 		</td>
-		<td><input name="addr1" id="addr1" type="text" value=""/>
+		<td><input name="addr1" id="addr1" type="text" value="${mcardDTO.addr1}"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			상세주소: 
 		</td>
-		<td><input name="addr2" id="addr2" type="text" value=""/>
+		<td><input name="addr2" id="addr2" type="text" value="${mcardDTO.addr2}"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			명함 공개 여부
+			명함 공개 여부:
 		</td>
 		<td>
 			<select name="status">
+				<option value="${mcardDTO.status}">${mcardDTO.sstatus}</option>
 				<c:forEach var="statusDTO" items="${statusList}">
 					<option value="${statusDTO.mcstatus_seq}">${statusDTO.name}</option>
 				</c:forEach>
@@ -125,7 +129,7 @@ $(function(){
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="submit" value="등록"/>
+			<input type="submit" value="수정"/>
 		</td>
 	</tr>
 </table>

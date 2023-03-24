@@ -34,8 +34,9 @@
                         extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_detailAddress").value = extraAddr;
-                
+                    if(extraAddr !== '') {
+                    	document.getElementById("sample6_detailAddress").value = extraAddr;
+                    }
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -47,14 +48,15 @@
     }
 </script>
 
-<form method="post" action="/mp/companyInsertPro">
+<form method="post" action="/mp/companyUpdatePro">
+<input type="hidden" name="company_seq" value="${companyDTO.company_seq}"/>
 <table class="table">
 	<tr>
 		<td>
 			회사 이름: 
 		</td>
 		<td>
-			<input type="text" name="name" />
+			<input type="text" name="name" value="${companyDTO.name}"/>
 		</td>
 	</tr>
 	<tr>
@@ -62,7 +64,7 @@
 			주소: 
 		</td>
 		<td>
-			<input type="text" name="addr1" id="sample6_address"/> 
+			<input type="text" name="addr1" value="${companyDTO.addr1}"/> 
 			<button type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">주소 검색</button>
 		</td>
 	</tr>
@@ -71,12 +73,12 @@
 			상세주소: 
 		</td>
 		<td>
-			<input type="text" name="addr2" id="sample6_detailAddress" />
+			<input type="text" name="addr2" value="${companyDTO.addr2}"/>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="submit" value="등록"/>
+			<input type="submit" value="수정"/>
 		</td>
 	</tr>
 </table>
