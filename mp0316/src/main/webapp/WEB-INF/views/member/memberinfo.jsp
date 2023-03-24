@@ -10,7 +10,7 @@
 
 <h2> id : ${sessionScope.id}</h2>
 <h2> pw : ${info.PW}</h2>
-dd
+
 <h2>${info.NAME}</h2><br />
 <h2>${info.ADDR1 }</h2><br />
 <h2>${info.ADDR2 }</h2><br />
@@ -19,3 +19,4 @@ dd
 <h2>${info.EMAIL}</h2><br />
 <h2>${info.GEN}</h2><br />
 <h2>${info.MEMO}</h2>
+<input type="button" value="수정" onclick="window.location='/mp/memberinforead?seq=${info.MEMBER_SEQ}'"/>
