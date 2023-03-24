@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mp0316.dto.MemberDTO;
+import com.mp0316.dto.MemberinfoDTO;
 import com.mp0316.service.MpService;
 
 @Controller
@@ -26,12 +28,20 @@ public class MpController {
 	
 	@PostMapping("loginPro")
 	public String logincheck(MemberDTO dto, HttpSession session) {
-		System.out.println("À¸¾Æ");
 		return service.logincheck(dto, session);
 	}
 	@GetMapping("memberinfo")
-	public String memberinfo(HttpSession session,Model model) {
-		String id =(String)session.getAttribute("id");
-		return service.memberinfo(id, model);
+	public String memberinfo(HttpSession session,Model model ) {
+		return service.memberinfo(session, model);
+	}
+	
+	@PostMapping("memberupdate")
+	public String memberupdate(MemberinfoDTO dto) {
+		System.out.println("===================================================");
+		return service.memberupdate(dto);
+	}
+	@GetMapping("memberinforead")
+	public String memberinforead(Model model,@RequestParam(value="seq",required=false, defaultValue="")int seq) {
+		return service.memberinforead(model,seq);
 	}
 }

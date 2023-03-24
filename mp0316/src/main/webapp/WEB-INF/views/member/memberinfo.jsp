@@ -19,3 +19,4 @@
 <h2>${info.EMAIL}</h2><br />
 <h2>${info.GEN}</h2><br />
 <h2>${info.MEMO}</h2>
+<input type="button" value="수정" onclick="window.location='/mp/memberinforead?seq=${info.MEMBER_SEQ}'"/>
