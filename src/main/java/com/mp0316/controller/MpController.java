@@ -1,5 +1,7 @@
 package com.mp0316.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.McardDTO;
+import com.mp0316.dto.MemberDTO;
+import com.mp0316.dto.MemberinfoDTO;
 import com.mp0316.service.MpService;
 
 @Controller
@@ -98,5 +102,29 @@ public class MpController {
 	@PostMapping("companyUpdatePro")
 	public String companyUpdatePro(Model model, CompanyDTO companyDTO) {
 		return service.companyUpdatePro(model, companyDTO);
+	}
+	
+	////////////////////////////////////////////////현태
+	@GetMapping("login")
+	public String login() {
+		return "member/login";
+	}
+	
+	@PostMapping("loginPro")
+	public String logincheck(MemberDTO dto, HttpSession session) {
+		return service.logincheck(dto, session);
+	}
+	@GetMapping("memberinfo")
+	public String memberinfo(HttpSession session,Model model ) {
+		return service.memberinfo(session, model);
+	}
+	
+	@PostMapping("memberupdate")
+	public String memberupdate(MemberinfoDTO dto) {
+		return service.memberupdate(dto);
+	}
+	@GetMapping("memberinforead")
+	public String memberinforead(Model model,@RequestParam(value="seq",required=false, defaultValue="")int seq) {
+		return service.memberinforead(model,seq);
 	}
 }

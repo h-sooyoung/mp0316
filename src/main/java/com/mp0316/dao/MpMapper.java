@@ -1,5 +1,6 @@
 package com.mp0316.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -9,6 +10,8 @@ import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.GenDTO;
 import com.mp0316.dto.McStatusDTO;
 import com.mp0316.dto.McardDTO;
+import com.mp0316.dto.MemberDTO;
+import com.mp0316.dto.MemberinfoDTO;
 
 public interface MpMapper {
 	public List<CgradeDTO> selectCgradeList();
@@ -29,4 +32,9 @@ public interface MpMapper {
 										@Param("searchValue")String searchValue);
 	public int delete1CompanyBySeq(int company_seq);
 	public int updateCompany(CompanyDTO companyDTO);
+	/////////////////////////////////////현태
+	public MemberDTO logincheck(MemberDTO dto);
+	public HashMap memberinfo(String id);
+	public void memberupdate(MemberinfoDTO dto);
+	public MemberinfoDTO memberinforead(@Param("seq")int seq);
 }

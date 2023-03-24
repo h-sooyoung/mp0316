@@ -1,9 +1,13 @@
 package com.mp0316.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.ui.Model;
 
 import com.mp0316.dto.CompanyDTO;
 import com.mp0316.dto.McardDTO;
+import com.mp0316.dto.MemberDTO;
+import com.mp0316.dto.MemberinfoDTO;
 
 public interface MpService {
 	public String cardInsert(Model model);
@@ -21,4 +25,11 @@ public interface MpService {
 	public String companyListPro(Model model, int companyArr[]);
 	public String companyUpdate(Model model, int company_seq);
 	public String companyUpdatePro(Model model, CompanyDTO companyDTO);
+	//////////////////////////////////////현태
+	public String login();
+	public String logincheck(MemberDTO dto, HttpSession session);
+	public void logout(HttpSession session);
+	public String memberinfo(HttpSession session , Model model);
+	public String memberupdate(MemberinfoDTO dto);
+	public String memberinforead(Model model,int seq);
 }

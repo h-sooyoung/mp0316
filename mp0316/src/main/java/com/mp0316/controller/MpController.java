@@ -17,7 +17,7 @@ import com.mp0316.service.MpService;
 @Controller
 @RequestMapping("/mp/*")
 public class MpController {
-	//ÄÁÆ®·Ñ·¯´Â ¼­ºñ½º¸¦ ºÒ·¯¿Í¾ßÇÔ
+	//ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ñ½º¸ï¿½ ï¿½Ò·ï¿½ï¿½Í¾ï¿½ï¿½ï¿½
 	@Autowired
 	private MpService service;
 	
@@ -37,7 +37,6 @@ public class MpController {
 	
 	@PostMapping("memberupdate")
 	public String memberupdate(MemberinfoDTO dto) {
-		System.out.println("===================================================");
 		return service.memberupdate(dto);
 	}
 	@GetMapping("memberinforead")
