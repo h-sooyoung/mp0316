@@ -39,7 +39,7 @@
 	<tr>
 		<td>
 			<input type="submit" value="수정"/>
-			<input type="button" value="명함목록" onclick="window.location='//'"/>
+			<input type="button" value="명함목록" onclick="window.location='/mp/cardListTable'"/>
 		</td>
 	</tr>
 </table>
