@@ -7,4 +7,5 @@ public class MemberDTO {
 	private int member_seq;
 	private String id;
 	private String pw;
+	private String memid;
 }

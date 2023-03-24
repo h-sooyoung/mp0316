@@ -16,4 +16,5 @@ public class MemberinfoDTO {
 	private String addr1;
 	private String addr2;
 	private Date reg;
+	private String memid;
 }

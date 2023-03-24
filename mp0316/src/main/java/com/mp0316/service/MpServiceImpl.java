@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 
 import com.mp0316.dao.MpMapper;
 import com.mp0316.dto.MemberDTO;
+import com.mp0316.dto.MemberinfoDTO;
 
 @Service
 public class MpServiceImpl implements MpService{
@@ -35,8 +36,23 @@ public class MpServiceImpl implements MpService{
 	}
 
 	@Override
-	public String memberinfo(String id, Model model) {
+	public String memberinfo(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("id");
 		model.addAttribute("info", mapper.memberinfo(id));
 		return "member/memberinfo";
 	}
+
+	@Override
+	public String memberupdate(MemberinfoDTO dto) {
+		mapper.memberupdate(dto);
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		return "member/memberupdate";
+	}
+
+	@Override
+	public String memberinforead(Model model, int seq) {
+		model.addAttribute("dto", mapper.memberinforead(seq));
+		return "member/memberinforead";
+	}
+	
 }
