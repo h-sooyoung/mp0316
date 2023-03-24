@@ -18,22 +18,30 @@ public class MpServiceImpl implements MpService{
 	MpMapper mapper;
 
 	@Override
-	public String cardInsert(Model model) {
+	public String cardInsert(Model model, HttpSession session) {
+		//세션에서 아이디 가져오기
+		String id = (String)session.getAttribute("id");
+		//아이디로 멤버 시퀀스 가져오기
+		int member_seq = mapper.selectMember_seqByID(id);
 		//gender 테이블 gen 목록 조회
 		model.addAttribute("genderList", mapper.selectGenList());
 		//grade 테이블 cgrade 목록 조회
 		model.addAttribute("cgradeList", mapper.selectCgradeList());
 		//cname 테이블 company에서 user가 등록한 목록 조회
-		model.addAttribute("companyList", mapper.selectCompanyByMember_seq(1));
+		model.addAttribute("companyList", mapper.selectCompanyByMember_seq(member_seq));
 		//status 테이블 mcstatus 목록 조회
 		model.addAttribute("statusList", mapper.selectMcStatusList());
 		return "mcard/cardInsert";
 	}
 
 	@Override
-	public String cardInsertPro(Model model, McardDTO mcardDTO) {
-		//임시 아이디 설정
-		mcardDTO.setMember_seq(1);
+	public String cardInsertPro(Model model, HttpSession session, McardDTO mcardDTO) {
+		//세션에서 아이디 가져오기
+		String id = (String)session.getAttribute("id");
+		//아이디로 멤버 시퀀스 가져오기
+		int member_seq = mapper.selectMember_seqByID(id);
+		//사용자 시퀀스 DTO에 세팅
+		mcardDTO.setMember_seq(member_seq);
 		//insert mapper 호출
 		mapper.insertMcard(mcardDTO);
 		//alert 출력 메세지

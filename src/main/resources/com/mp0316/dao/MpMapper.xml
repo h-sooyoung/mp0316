@@ -160,6 +160,10 @@
 			addr2 = #{addr2}
 		where company_seq = #{company_seq}
 	</update>
+	<select id="selectMember_seqByID" parameterType="String" resultType="int">
+		select member_seq from member where id = #{id}
+	</select>
+	
 	
 	<!--                                  현태                                             -->
 	<select id="logincheck" resultType="com.mp0316.dto.MemberDTO">

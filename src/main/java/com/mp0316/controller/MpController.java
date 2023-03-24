@@ -24,13 +24,13 @@ public class MpController {
 	private MpService service;
 	
 	@GetMapping("cardInsert")
-	public String cardInsert(Model model) {
-		return service.cardInsert(model);
+	public String cardInsert(Model model, HttpSession session) {
+		return service.cardInsert(model, session);
 	}
 	
 	@PostMapping("cardInsertPro")
-	public String cardInsertPro(Model model, McardDTO mcardDTO) {
-		return service.cardInsertPro(model, mcardDTO);
+	public String cardInsertPro(Model model, HttpSession session, McardDTO mcardDTO) {
+		return service.cardInsertPro(model, session, mcardDTO);
 	}
 	
 	@GetMapping("getAddrByCompany_seq")

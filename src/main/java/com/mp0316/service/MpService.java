@@ -10,8 +10,8 @@ import com.mp0316.dto.MemberDTO;
 import com.mp0316.dto.MemberinfoDTO;
 
 public interface MpService {
-	public String cardInsert(Model model);
-	public String cardInsertPro(Model model, McardDTO mcardDTO);
+	public String cardInsert(Model model, HttpSession session);
+	public String cardInsertPro(Model model, HttpSession session, McardDTO mcardDTO);
 	public CompanyDTO getAddrByCompany_seq(int company_seq);
 	public String companyInsert();
 	public String companyInsertPro(Model model, CompanyDTO companyDTO);

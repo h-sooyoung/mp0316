@@ -32,6 +32,7 @@ public interface MpMapper {
 										@Param("searchValue")String searchValue);
 	public int delete1CompanyBySeq(int company_seq);
 	public int updateCompany(CompanyDTO companyDTO);
+	public int selectMember_seqByID(String id);
 	/////////////////////////////////////현태
 	public MemberDTO logincheck(MemberDTO dto);
 	public HashMap memberinfo(String id);
