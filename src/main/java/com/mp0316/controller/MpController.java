@@ -114,6 +114,7 @@ public class MpController {
 	public String logincheck(MemberDTO dto, HttpSession session) {
 		return service.logincheck(dto, session);
 	}
+	
 	@GetMapping("memberinfo")
 	public String memberinfo(HttpSession session,Model model ) {
 		return service.memberinfo(session, model);
@@ -123,8 +124,14 @@ public class MpController {
 	public String memberupdate(MemberinfoDTO dto) {
 		return service.memberupdate(dto);
 	}
+	
 	@GetMapping("memberinforead")
 	public String memberinforead(Model model,@RequestParam(value="seq",required=false, defaultValue="")int seq) {
 		return service.memberinforead(model,seq);
+	}
+	
+	@GetMapping("logout")
+	public String logout(Model model, HttpSession session) {
+		return service.logout(model, session);
 	}
 }

@@ -200,8 +200,13 @@ public class MpServiceImpl implements MpService{
 	}
 
 	@Override
-	public void logout(HttpSession session) {
+	public String logout(Model model, HttpSession session) {
 		session.invalidate();//�����ʱ�ȭ
+		//alert 출력 메세지
+		model.addAttribute("msg", "로그아웃 되었습니다");
+		//이동할 location
+		model.addAttribute("link", "/mp/login");
+		return "mcard/totalPro";
 	}
 
 	@Override
