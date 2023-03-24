@@ -44,20 +44,20 @@ public class MpController {
 	}
 	
 	@PostMapping("companyInsertPro")
-	public String companyInsertPro(Model model, CompanyDTO companyDTO) {
-		return service.companyInsertPro(model, companyDTO);
+	public String companyInsertPro(Model model, HttpSession session, CompanyDTO companyDTO) {
+		return service.companyInsertPro(model, session, companyDTO);
 	}
 	
 	@GetMapping("cardList")
-	public String cardList(Model model,
+	public String cardList(Model model, HttpSession session,
 			@RequestParam(value = "pageNum" , required=false, defaultValue="1")int pageNum) {
-		return service.cardList(model, pageNum);
+		return service.cardList(model, session, pageNum);
 	}
 	
 	@GetMapping("cardListTable")
-	public String cardListTable(Model model,
+	public String cardListTable(Model model, HttpSession session,
 			@RequestParam(value = "pageNum" , required=false, defaultValue="1")int pageNum) {
-		return service.cardListTable(model, pageNum);
+		return service.cardListTable(model, session, pageNum);
 	}
 	
 	@GetMapping("readUpdate")

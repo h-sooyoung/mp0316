@@ -62,16 +62,25 @@ public class MpServiceImpl implements MpService{
 	}
 
 	@Override
-	public String companyInsertPro(Model model, CompanyDTO companyDTO) {
-		//임시 아이디 설정
-		companyDTO.setMember_seq(1);
+	public String companyInsertPro(Model model, HttpSession session, CompanyDTO companyDTO) {
+		//세션에서 아이디 가져오기
+		String id = (String)session.getAttribute("id");
+		//아이디로 멤버 시퀀스 가져오기
+		int member_seq = mapper.selectMember_seqByID(id);
+		//사용자 시퀀스 DTO에 세팅
+		companyDTO.setMember_seq(member_seq);
 		//insert mapper 호풀
 		mapper.insertCompany(companyDTO);
 		//alert 출력 메세지
 		model.addAttribute("msg", "회사 정보가 등록 되었습니다.");
 		return "mcard/popUpPro";
 	}
-	public String cardList(Model model, int pageNum) {
+	public String cardList(Model model, HttpSession session, int pageNum) {
+		//세션에서 아이디 가져오기
+		String id = (String)session.getAttribute("id");
+		//아이디로 멤버 시퀀스 가져오기
+		int member_seq = mapper.selectMember_seqByID(id);
+		
 		//한 페이지에 출력할 데이터 양
 		int pageSize = 9;
 		//불러올 데이터 범위 계산
@@ -83,13 +92,18 @@ public class MpServiceImpl implements MpService{
 		if(countRow%pageSize > 0) {
 			countPage++;
 		};
-		model.addAttribute("mcardList", mapper.selectMcardOpenList(startNum, endNum));
+		model.addAttribute("mcardList", mapper.selectMcardListByMember_seq(member_seq, startNum, endNum));
 		model.addAttribute("countPage", countPage);
 		return "mcard/cardList";
 	}
 
 	@Override
-	public String cardListTable(Model model, int pageNum) {
+	public String cardListTable(Model model, HttpSession session, int pageNum) {
+		//세션에서 아이디 가져오기
+		String id = (String)session.getAttribute("id");
+		//아이디로 멤버 시퀀스 가져오기
+		int member_seq = mapper.selectMember_seqByID(id);
+		
 		//한 페이지에 출력할 데이터 양
 		int pageSize = 5;
 		//불러올 데이터 범위 계산
@@ -101,7 +115,7 @@ public class MpServiceImpl implements MpService{
 		if(countRow%pageSize > 0) {
 			countPage++;
 		};
-		model.addAttribute("mcardList", mapper.selectMcardOpenList(startNum, endNum));
+		model.addAttribute("mcardList", mapper.selectMcardListByMember_seq(member_seq, startNum, endNum));
 		model.addAttribute("countPage", countPage);
 		return "mcard/cardListTable";
 	}

@@ -21,7 +21,9 @@ public interface MpMapper {
 	public CompanyDTO selectCompanyByCompany_seq(int company_seq);
 	public int insertMcard(McardDTO mcardDTO);
 	public int insertCompany(CompanyDTO companyDTO);
-	public List<McardDTO> selectMcardOpenList(@Param("startNum")int startNum, @Param("endNum")int endNum);
+	public List<McardDTO> selectMcardListByMember_seq(@Param("member_seq")int member_seq,
+													@Param("startNum")int startNum, 
+													@Param("endNum")int endNum);
 	public int countMcardOpenList();
 	public McardDTO selectMcardDTOBySeq(int mcard_seq);
 	public int updateMcard(McardDTO mcardDTO);

@@ -14,9 +14,9 @@ public interface MpService {
 	public String cardInsertPro(Model model, HttpSession session, McardDTO mcardDTO);
 	public CompanyDTO getAddrByCompany_seq(int company_seq);
 	public String companyInsert();
-	public String companyInsertPro(Model model, CompanyDTO companyDTO);
-	public String cardList(Model model, int pageNum);
-	public String cardListTable(Model model, int pageNum);
+	public String companyInsertPro(Model model, HttpSession session, CompanyDTO companyDTO);
+	public String cardList(Model model, HttpSession session, int pageNum);
+	public String cardListTable(Model model, HttpSession session, int pageNum);
 	public String readUpdate(Model model, int mcard_seq);
 	public String readUpdatePro(Model model, McardDTO mcardDTO);
 	public String cardSearchResult(Model model, String searchCol, String searchValue, int pageNum);
