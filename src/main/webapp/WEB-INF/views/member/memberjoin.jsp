@@ -3,8 +3,7 @@
 
 <script src="/resources/js/jquery-3.6.1.min.js"></script>
 
-<form action="/mp/memberjoinPro" method="get">
-
+<form action="/mp/memberjoinPro" method="post">
 <table class="table table-hover">
 	<tr>
 		<td>아이디</td>

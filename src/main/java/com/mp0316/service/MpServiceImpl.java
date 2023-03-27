@@ -258,7 +258,7 @@ public class MpServiceImpl implements MpService{
 		model.addAttribute("msg", "등록이 완료되었습니다");
 		//이동할로케이션
 		model.addAttribute("link", "/mp/login");
-		return "member/loginPro";
+		return "mcard/totalPro";
 	}
 
 	@Override

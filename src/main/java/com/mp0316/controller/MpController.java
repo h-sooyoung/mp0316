@@ -138,30 +138,11 @@ public class MpController {
 		return service.logout(model, session);
 	}
 	
-	@GetMapping("memberjoinPro")
-	public String joinmember(Model model,
-							@RequestParam(value="id", required=false)String id,
-							@RequestParam(value="pw", required=false)String pw,
-							@RequestParam(value="email", required=false)String email,
-							@RequestParam(value="birth", required=false)Date birth,
-							@RequestParam(value="name", required=false)String name,
-							@RequestParam(value="gen", required=false)int gen,
-							@RequestParam(value="tel", required=false)String tel,
-							@RequestParam(value="addr1", required=false)String addr1,
-							@RequestParam(value="addr2", required=false)String addr2) {
-		MemberjoinDTO dto = new MemberjoinDTO();
-		dto.setAddr1(addr1);
-		dto.setAddr2(addr2);
-		dto.setBirth(birth);
-		dto.setEmail(email);
-		dto.setGen(gen);
-		dto.setId(id);
-		dto.setName(name);
-		dto.setPw(pw);
-		dto.setTel(tel);
-		
+	@PostMapping("memberjoinPro")
+	public String joinmember(Model model, MemberjoinDTO dto) {
 		return service.joinmemberPro(dto,model);
 	}
+	
 	@GetMapping("memberjoin")
 	public String memberjoin() {
 		return service.memberjoin();

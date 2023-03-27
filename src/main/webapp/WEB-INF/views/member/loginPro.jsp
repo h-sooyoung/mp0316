@@ -4,6 +4,6 @@
 <h1>http://localhost:8080/member/loginPro</h1>
 
 <script>
-	alert("아이디, 비밀번호를 확인하세요!!")
+	alert("로그인 되었습니다.")
 	window.location="/mp/memberinfo";
 </script>
